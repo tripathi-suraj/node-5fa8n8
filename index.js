@@ -10,7 +10,7 @@ http
     fns
       .mypromise()
       .then((s) => {
-        console.log(s);
+        console.log('a', s);
       })
       .catch((c) => {
         console.log('Catch Error', c);
@@ -25,31 +25,31 @@ fns.mypromise = async function (req, res) {
   var url3 = 'https://jsonplaceholder.typicode.com/todos/3';
 
   const a1 = new Promise((resolve, reject) => {
-    request(url1, function (err, result) {
-      if (err) {
-        reject(err);
+    request(url1, function (e, r, b) {
+      if (e) {
+        reject(e);
       } else {
-        resolve(result);
+        resolve(JSON.parse(b));
       }
     });
   });
 
   const a2 = new Promise((resolve, reject) => {
-    request(url2, function (err, result) {
-      if (err) {
-        reject(err);
+    request(url2, function (e, r, b) {
+      if (e) {
+        reject(e);
       } else {
-        resolve(result);
+        resolve(JSON.parse(b));
       }
     });
   });
 
   const a3 = new Promise((resolve, reject) => {
-    request(url3, function (err, result) {
-      if (err) {
-        reject(err);
+    request(url3, function (e, r, b) {
+      if (e) {
+        reject(e);
       } else {
-        resolve(result);
+        resolve(b);
       }
     });
   });
